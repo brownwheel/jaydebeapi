@@ -420,6 +420,14 @@ class Connection(object):
     def cursor(self):
         return Cursor(self, self._converters)
 
+    def execute(self, sql):
+        try:
+            statement = self.jconn.createStatement()
+            return stmt.executeQuery(sql)
+        except:
+            _handle_sql_exception()
+
+
 # DB-API 2.0 Cursor Object
 class Cursor(object):
 
