@@ -420,6 +420,9 @@ class Connection(object):
     def cursor(self):
         return Cursor(self, self._converters)
 
+    def createStatement(self):
+        return self.jconn.createStatement()
+
     def execute(self, sql):
         try:
             statement = self.jconn.createStatement()
