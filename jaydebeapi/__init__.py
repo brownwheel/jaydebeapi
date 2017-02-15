@@ -423,7 +423,7 @@ class Connection(object):
     def execute(self, sql):
         try:
             statement = self.jconn.createStatement()
-            return stmt.executeQuery(sql)
+            return statement.executeQuery(sql)
         except:
             _handle_sql_exception()
 
